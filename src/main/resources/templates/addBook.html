@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AddBooks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>Add Book</h2>
+<form action="/addBooks" method="post">
+  <br>
+  <input type="text" name="bookName" class="form-control"><br>
+  <br>
+ <select class="form-control" name="idAuthor">
+     <option value="">select author</option>
+     <option th:each="authorList:${authorsLists}"
+     th:value="${authorList.getId()}"
+     th:text="${authorList.getFirstName()}+' '+${authorList.getLastName()}">
+
+     </option>
+ </select>
+  <!--<input type="text" name="idAuthor" class="form-control"><br>-->
+  <br>
+  <button type="submit">add</button>
+</form>
+</body>
+</html>
